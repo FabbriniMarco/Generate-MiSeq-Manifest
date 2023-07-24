@@ -1,0 +1,14 @@
+[Header]												
+Experiment Name	Intert_Name						
+Date	Insert_Date						
+Module	GenerateFASTQ - 3.0.1						
+Workflow	GenerateFASTQ						
+Library Prep Kit	Nextera XT						
+Index Kit	Nextera XT v2 Index Kit Sets A B C D						
+Chemistry	Amplicon												
+[Reads]							
+251							
+251													
+[Settings]							
+adapter	CTGTCTCTTATACACATCT												
+[Data]							
