@@ -1,7 +1,7 @@
 ############### script for generating input manifest for MiSeq sequencing machine ##################
 # Marco Fabbrini
-# VERSION:2.6
-# RELEASE:03/Mar/2023
+# VERSION:2.6.1
+# RELEASE:24/Lug/2023
 
 args<-commandArgs(TRUE) 
 
