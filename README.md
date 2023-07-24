@@ -33,13 +33,13 @@ If you don't know your PATH you can also type "cd " and drag-and-drop the folder
 
 Paste this in your Terminal, changing the parameters accordingly  
 ```Bash
-Rscript Generate-MiSeq-Manifest.R index_database.tsv header.tsv Project_name 2023-05-18 4 EXAMPLE_PLATE.xlsx
+Rscript Generate-MiSeq-Manifest.R index_database.tsv header.tsv Project_name 2023-05-18 4 EXAMPLE_PLATES.xlsx
 ```
 
 You need to change the "Project_name" accordingly to the name you want to give to the run  
 You need to change the date "2023-05-18" setting the date in which the run WILL BE conducted  
 You need to change the number "4" - the one between the date and the excel file - according to the number of plates in the excel file  
-You need to change the "EXAMPLE_PLATE.xlsx" excel file with the plates accordingly to the samples and plates you have prepared, sticking to the template  
+You need to change the "EXAMPLE_PLATES.xlsx" excel file with the plates accordingly to the samples and plates you have prepared, sticking to the template  
   
   
   
@@ -59,13 +59,13 @@ Remember to execute the command below with the commercial & first! Note the use 
 Note to the IT users: even if your folder is named "Programmi", you still need to type "Program Files" in the path below. Just adjust the R-X.X.X version in the path  
 
 ```Powershell
-& "C:\Program Files\R\R-4.3.1\bin\Rscript.exe" Generate-MiSeq-Manifest.R index_database.tsv header.tsv Project_name 2023-05-18 4 EXAMPLE_PLATE.xlsx
+& "C:\Program Files\R\R-4.3.1\bin\Rscript.exe" Generate-MiSeq-Manifest.R index_database.tsv header.tsv Project_name 2023-05-18 4 EXAMPLE_PLATES.xlsx
 ```  
 
 You need to change the "Project_name" accordingly to the name you want to give to the run  
 You need to change the date "2023-05-18" setting the date in which the run WILL BE conducted  
 You need to change the number "4" - the one between the date and the excel file - according to the number of plates in the excel file  
-You need to change the "EXAMPLE_PLATE.xlsx" excel file with the plates accordingly to the samples and plates you have prepared, sticking to the template  
+You need to change the "EXAMPLE_PLATES.xlsx" excel file with the plates accordingly to the samples and plates you have prepared, sticking to the template  
 
 
 
