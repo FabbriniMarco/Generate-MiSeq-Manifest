@@ -11,6 +11,15 @@ install.packages("readxl")
 ```
 
 
+## Download the script and the required files  
+In order to download the files in this repository you can open your Terminal on MacOS or Linux; or your Powershell on Windows and use the following:
+
+```diff
+ git clone https://github.com/FabbriniMarco/Generate-MiSeq-Manifest
+```
+Or you can click on the green "Code" button on top of this page and select the "Download ZIP" option;  
+Or you can download the release .zip file from the [Releases](https://github.com/FabbriniMarco/Generate-MiSeq-Manifest/releases) section
+
 
 ## Tutorial for Linux and MacOS:  
 
