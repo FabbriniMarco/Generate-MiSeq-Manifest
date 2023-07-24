@@ -2,6 +2,11 @@
 ### Quickly produce a .csv manifest file to import samples into Illumina MiSeq machine for the sequencing run, starting from 96-well plates of samples with matched index codes
 
 
+  ## Warning: This script works only with Illumina Nextera XT Index v2 (sets A,B,C and D)  
+  
+  Before using the script consider looking at the _index_database.tsv_ file to check whether your indexes are included.  
+    
+
 ## Requirements:
 The script requires R to be installed (look at the [Comprehensive R Archive Network](https://cran.r-project.org/) if you don't have R installed)  
 The readxl package is required. It can be installed automatically during the first run of the script or manually running the following line of code in R/RStudio:  
