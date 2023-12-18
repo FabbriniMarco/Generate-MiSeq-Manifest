@@ -1,7 +1,7 @@
 ############### script for generating input manifest for MiSeq sequencing machine ##################
 # Marco Fabbrini
-# VERSION:2.6.1
-# RELEASE:24/Lug/2023
+# VERSION:2.7
+# RELEASE:18/Dec/2023
 
 args<-commandArgs(TRUE) 
 
@@ -27,6 +27,7 @@ header_table = header_table[,c(1:7)]
 # Debugging purposes:
 # project_name = "test"
 # project_date = Sys.Date()+1
+# n_plates = 4
 project_name = args[3]
 project_date = args[4]
 
@@ -46,6 +47,12 @@ for ( n in 1:n_plates)
   suppressMessages(assign(paste("plate", n, sep=""), as.data.frame(read_xlsx(path = pDataFile3, sheet = n )[c(1:8),c(1:13)]) ))
   index_set <- c(index_set, colnames(get(paste("plate", n, sep="")))[1] )
 }
+if ( any( ! index_set %in% LETTERS[1:4] ))
+{
+  print(paste("No sample sheet has been produced. Check your EXCEL plate table first. Aligator."))
+  print(paste( "The provided Index Set name", paste(index_set[! index_set %in% LETTERS[1:4]], collapse=", "), "values are NOT valid. Please use only the A, B, C, D letters"))
+  stop(  paste("Invalid Index Set name found in cell A1 of plate N.", paste( which(! index_set %in% LETTERS[1:4]), collapse =",") ) )
+}
 
 index_correspondence = data.frame(plate=1:n_plates, index_set=index_set)
 data_section = data.frame(matrix(ncol=7))
@@ -59,16 +66,16 @@ for ( n in 1:n_plates)
   if ( ! all ( colnames(get(paste("plate", n, sep="")))[2:13] %in% index_database$Index_Name | grepl("empty", colnames(get(paste("plate", n, sep="")))[2:13]) ) )
   {
     print(paste("No sample sheet has been produced. Check your EXCEL plate table first. Aligator."))
-    stop( print( paste("Invalid Index name found in columns of plate N.", n, " --- Index \'", 
+    stop(  paste("Invalid Index name found in columns of plate N.", n, " --- Index \'", 
                        colnames(get(paste("plate", n, sep="")))[2:13][!(colnames(get(paste("plate", n, sep="")))[2:13] %in% index_database$Index_Name | grepl("empty", colnames(get(paste("plate", n, sep="")))[2:13]))],
-                       "\' not found in index_database.tsv", sep="") ) )
+                       "\' not found in index_database.tsv", sep="")  )
   }
   if ( !all( get(paste("plate", n, sep=""))[,1] %in% c(index_database$Index_Name, "empty")  ) )
   {
     print(paste("No sample sheet has been produced. Check your EXCEL plate table first. Aligator."))
-    stop( print( paste("Invalid Index name found in rows of plate N. ", n, " --- Index \'", 
+    stop(  paste("Invalid Index name found in rows of plate N. ", n, " --- Index \'", 
                        get(paste("plate", n, sep=""))[,1][!get(paste("plate", n, sep=""))[,1] %in% c(index_database$Index_Name, "empty")],
-                       "\' not found", sep="") ) )
+                       "\' not found", sep="")  )
   }
 }
 
@@ -140,7 +147,7 @@ if ( any(duplicated(data_section$Sample_ID)) )
     }
   }
   
-  print(paste("No sample sheet has been produced. Check your EXCEL plate table first. Aligator."))
+  stop(paste("No sample sheet has been produced. Check your EXCEL plate table first. Aligator."))
 } else {
   colnames(data_section) = colnames(header_table)
   final_format <- rbind(header_table, data_section_header, data_section)
