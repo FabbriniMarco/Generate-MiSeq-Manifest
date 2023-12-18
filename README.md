@@ -31,7 +31,7 @@ Or you can download the release .zip file from the [Releases](https://github.com
 Open your Terminal app and head to the folder containing this script and the plates for the run, using the "cd" command, for example:  
 
 ```Bash
-cd /User/myusername/Downloads/Generate_MiSeq_CSV-2.6.1
+cd /User/myusername/Downloads/Generate_MiSeq_CSV-2.7
 ```
 
 If you don't know your PATH you can also type "cd " and drag-and-drop the folder from the Finder/FileExplorer inside the terminal.
@@ -54,7 +54,7 @@ If you have problem finding your terminal, you cen press the keys Win+R and a "E
 Now head to the folder containing the script and the plates for the run, using the "cd" command. Remember to use single quotes for the path. For example:  
 
 ```Powershell
-cd 'C:\Users\myusername\Downloads\Generate_MiSeq_CSV-2.6.1\'
+cd 'C:\Users\myusername\Downloads\Generate_MiSeq_CSV-2.7\'
 ```
 
 If you don't know your PATH you can also type "cd " and drag-and-drop the folder from the File Explorer inside the terminal.  
@@ -103,7 +103,7 @@ You need to change the "EXAMPLE_PLATES.xlsx" excel file with the plates accordin
   title = {Generate MiSeq Manifest: Quickly produce a .csv manifest file to import samples into Illumina MiSeq machine},
   author = {Marco Fabbrini},
   year = {2023},
-  note = {R package version 2.6.1},
+  note = {version 2.7},
   url = {https://github.com/FabbriniMarco/Generate-MiSeq-Manifest.git},
 }
 ```
