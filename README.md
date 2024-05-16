@@ -1,11 +1,15 @@
 # Generate MiSeq Manifest
-### Quickly produce a .csv manifest file to import samples into Illumina MiSeq machine for the sequencing run, starting from 96-well plates of samples with matched index codes
+Quickly produce a .csv manifest file to import samples into Illumina MiSeq machine for the sequencing run, starting from 96-well plates of samples with matched index codes
 
+<br>
+<br>
 
   ## Warning: This script works only with Illumina Nextera XT Index v2 (sets A,B,C and D)  
   
   Before using the script consider looking at the _index_database.tsv_ file to check whether your indexes are included.  
     
+<br>
+<br>
 
 ## Requirements:
 The script requires R to be installed (look at the [Comprehensive R Archive Network](https://cran.r-project.org/) if you don't have R installed)  
@@ -15,6 +19,8 @@ The readxl package is required. It can be installed automatically during the fir
 install.packages("readxl")
 ```
 
+<br>
+<br>
 
 ## Download the script and the required files  
 In order to download the files in this repository you can open your Terminal on MacOS or Linux; or your Powershell on Windows and use the following:
@@ -25,6 +31,8 @@ In order to download the files in this repository you can open your Terminal on 
 Or you can click on the green "Code" button on top of this page and select the "Download ZIP" option;  
 Or you can download the release .zip file from the [Releases](https://github.com/FabbriniMarco/Generate-MiSeq-Manifest/releases) section
 
+<br>
+<br>
 
 ## Tutorial for Linux and MacOS:  
 
@@ -46,7 +54,9 @@ You need to change the date "2023-05-18" setting the date in which the run WILL 
 You need to change the number "4" - the one between the date and the excel file - according to the number of plates in the excel file  
 You need to change the "EXAMPLE_PLATES.xlsx" excel file with the plates accordingly to the samples and plates you have prepared, sticking to the template  
   
-  
+<br>
+<br>
+
   
 ## Tutorial for Windows 10 and Windows 11:
 Open your Terminal app or Windows PowerShell by searching for "Terminal" or "Powershell" in your Start menu.  
@@ -73,6 +83,9 @@ You need to change the number "4" - the one between the date and the excel file 
 You need to change the "EXAMPLE_PLATES.xlsx" excel file with the plates accordingly to the samples and plates you have prepared, sticking to the template  
 
 
+<br>
+<br>
+
 
 ## Additional details:
 
@@ -92,7 +105,8 @@ You need to change the "EXAMPLE_PLATES.xlsx" excel file with the plates accordin
   * In case of an empty cell you MUST fill the cell with the term: _**empty**_
 
     
-
+<br>
+<br>
 
 ## Cite this tool if you want:  
 
