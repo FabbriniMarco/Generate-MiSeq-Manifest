@@ -4,6 +4,7 @@ import pandas as pd
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 from tkinter import filedialog, messagebox
+import csv
 import shutil
 
 # Helper function to get the correct path to resources
@@ -60,26 +61,31 @@ class MiSeqManifestGenerator:
 
     def select_file(self):
         self.file_path = filedialog.askopenfilename(filetypes=[("Excel Files", "*.xlsx")])
-        if self.file_path:
-            messagebox.showinfo("File Selected", f"Selected File: {os.path.basename(self.file_path)}")
-
+        
     def generate_manifest(self):
         project_name = self.project_name_entry.get()
         project_date = self.project_date_entry.get()
         n_plates = self.n_plates_entry.get()
-        
+
         # Validate inputs
         if not project_name or not project_date or not n_plates or not self.file_path:
             messagebox.showerror("Error", "All fields and the Excel file must be provided!")
             return
-        
+
         try:
             n_plates = int(n_plates)
             project_date = pd.to_datetime(project_date).strftime('%Y-%m-%d')
         except ValueError:
             messagebox.showerror("Error", "Invalid date or number of plates format.")
             return
-        
+
+        # Ask for output destination
+        output_file = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV files", "*.csv")],
+                                                initialfile=f"{project_name}_SampleSheet_{project_date}.csv")
+        if not output_file:
+            messagebox.showerror("Error", "Output destination must be specified!")
+            return
+
         # Process the header file
         try:
             header_lines = self.process_header_file(project_name, project_date)
@@ -90,9 +96,8 @@ class MiSeqManifestGenerator:
         # Run the manifest generation logic
         try:
             data_section = self.generate_manifest_logic(project_name, n_plates)
-            file_name = f"{project_name}_SampleSheet_{project_date}.csv"
-            self.write_manifest(header_lines, data_section, file_name)
-            messagebox.showinfo("Success", f"Manifest generated successfully: {file_name}")
+            self.write_manifest(header_lines, data_section, output_file)
+            messagebox.showinfo("Success", f"Manifest generated successfully: {output_file}")
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred: {str(e)}")
 
