@@ -38,13 +38,13 @@ Simply double click the executable. You will get a warning as the executable fil
   <img width="396" alt="GUI example" src="https://github.com/user-attachments/assets/6da3fe5e-50e7-4028-9008-df54e9b28522" height="360">
 </div>
 
-You can click the ```Get Example Plate File``` button at the bottom and point a place where to save the EXAMPLE_PLATES.xlsx file. This is a template excel file with the plates, that you can fiill in accordingly to the samples and plates you have prepared, sticking to the template.
+You can click the ```Get Example Plate File``` button at the bottom and point a place where save the EXAMPLE_PLATES.xlsx file. This is a template excel file with the plates, that you can fill in accordingly to the samples and plates you have prepared, sticking to the template.
 After compiling the text box fields ```Project Name```, ```Project Date``` in YEAR-MONTH-DAY format and ```Number of Plates``` you have to provide the excel file in the prompt that opens when clicking the ```Select Excel File``` and you're good to go! Just press the ```Generate Manifest``` and specify an output directory where to save your sample sheet for the sequencing run.
 
 <br>
 
 ## MacOS users
-MacOS users can [download the ```.app```](https://github.com/FabbriniMarco/Generate-MiSeq-Manifest/releases/download/v2.7/GenerateMiSeqManifest-MacOS-arm.zip) in the ZIP archive in the Release section of this repo. The program shouuld work on MacOS with ARM processors (M!, M2, M3) but has not been tested. Please raise any Issue through the Issue section of this repo.
+MacOS users can [download the ```.app```](https://github.com/FabbriniMarco/Generate-MiSeq-Manifest/releases/download/v2.7/GenerateMiSeqManifest-MacOS-arm.zip) in the ZIP archive in the Release section of this repo. The program should work on MacOS with ARM processors (M!, M2, M3) but has not been tested. Please raise any Issue through the Issue section of this repo.
 <br> Alternatively MacOS user can run the .py script from the Terminal (see next section).
 ***
 
@@ -97,14 +97,14 @@ Or you can download the release .zip file from the [Releases](https://github.com
 
 Open your Terminal app and head to the folder containing this script and the plates for the run, using the "cd" command, for example:  
 
-```Bash
+```bash
 cd /User/myusername/Downloads/Generate_MiSeq_CSV-2.7
 ```
 
 If you don't know your PATH you can also type ```cd ``` and drag-and-drop the folder from the Finder/FileExplorer inside the terminal.
 
 Paste this in your Terminal, changing the parameters accordingly  
-```Bash
+```bash
 Rscript Generate-MiSeq-Manifest.R index_database.tsv header.tsv Project_name 2023-05-18 4 EXAMPLE_PLATES.xlsx
 ```
 
@@ -118,7 +118,7 @@ You need to change the "EXAMPLE_PLATES.xlsx" excel file with the plates accordin
   
 ## Legacy CLI execution for Windows
 Open your Terminal app or Windows PowerShell by searching for "Terminal" or "Powershell" in your Start menu.  
-If you have problem finding your terminal, you cen press the keys Win+R and a "Execute" window sill pop out in the bottom-left screen. Type "powershell" and hit Enter.  
+If you have problem finding your terminal, you can press the keys Win+R and a "Execute" window will pop out in the bottom-left screen. Type "powershell" and hit Enter.  
 Now head to the folder containing the script and the plates for the run, using the "cd" command. Remember to use single quotes for the path. For example:  
 
 ```Powershell
@@ -129,7 +129,7 @@ If you don't know your PATH you can also type "cd " and drag-and-drop the folder
 
 Then, we need to locate your Rscript.exe executable. You can open your File Explorer and head to "This PC", then select "OS C:", then "Program Files" (EN) or "Programmi" (IT) and open the "R" folder. Check which one is the latest version (the highest number) and edit the line of code below (R-4.3.1) in order to execute the appropriate version of R.  
 Remember to execute the command below with the commercial & first! Note the use of double quotes for the path to the Rscript.exe executable.  
-Note to the IT users: even if your folder is named "Programmi", you still need to type "Program Files" in the path below. Just adjust the R-X.X.X version in the path  
+Note to the Italian users: even if your folder is named "Programmi", you must type "Program Files" in the path below. Just adjust the R-X.X.X version in the path  
 
 ```Powershell
 & "C:\Program Files\R\R-4.3.1\bin\Rscript.exe" Generate-MiSeq-Manifest.R index_database.tsv header.tsv Project_name 2023-05-18 4 EXAMPLE_PLATES.xlsx
@@ -155,7 +155,7 @@ You need to change the "EXAMPLE_PLATES.xlsx" excel file with the plates accordin
 * Things to check:
   * Each separate plate is in a separate sheet
   * The plate must start from the first cell in the upper left corner of the Excel sheet
-  * The upper left cell must contain a single letter pointing to the adapter set (A, B, C, D). No spaces, no merged cells.
+  * The upper left cell must contain a single letter pointing to the adapter set (A, B, C, D). No spaces, no merged cells
   * Column names and row names MUST contain index codes (N- in the columns, S- in the rows) OR 'empty'
   * The inner part of the table must contain sample's name. Avoid name starting with numbers or containing special characters
   * In case of an empty cell you MUST fill the cell with the term: _**empty**_
